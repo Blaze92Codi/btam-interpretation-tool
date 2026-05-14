@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BTAM Assessment Analyzer Reader | Palmer Venture LLC</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Palmer Venture LLC • BTAM Assessment Analyzer Reader</p>
+      <h1>Professional Assessment Interpretation Tool</h1>
+      <p class="sub">Upload or paste completed BTAM assessment notes, form text, or case documentation. The tool converts the information into a professional plain-language summary, missing-facts checklist, immediate management actions, supportive intervention direction, and follow-up plan.</p>
+    </div>
+    <div class="badge">Demo / Training Data Only</div>
+  </header>
+
+  <main class="layout">
+    <section class="panel input-panel">
+      <div class="section-title">
+        <span class="step">1</span>
+        <h2>Load the assessment</h2>
+      </div>
+      <div class="notice warning">
+        <strong>Public demo rule:</strong> Use test/demo data only. Do not enter real student, employee, medical, disciplinary, threat, or personally identifiable information into a public GitHub Pages demo.
+      </div>
+
+      <label>Upload a test file <span class="hint">(.txt, .md, .csv, .json only)</span>
+        <input id="fileInput" type="file" accept=".txt,.md,.csv,.json,text/plain,text/markdown,application/json,text/csv" />
+      </label>
+      <p id="fileStatus" class="file-status">No file loaded yet.</p>
+
+      <div class="button-row">
+        <button id="demoBtn" type="button">Load Sample Test Case</button>
+        <button id="clearBtn" type="button" class="secondary">Clear</button>
+      </div>
+
+      <label>Case / Concern Name
+        <input id="caseName" placeholder="Example: 26-0514-Training-Concern-001" />
+      </label>
+      <label>Setting
+        <select id="setting">
+          <option>School / K-12</option>
+          <option>College / Campus</option>
+          <option>Workplace</option>
+          <option>Church / Nonprofit</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label>Assessment Reference Type
+        <select id="toolType">
+          <option>Generic BTAM / Structured Professional Judgment</option>
+          <option>NaBITA / School or Campus Concern</option>
+          <option>WAVR-21 Style Workplace/Campus Concern</option>
+          <option>SIVRA Style Student Violence Risk Concern</option>
+          <option>Threat Communication / CTAP Style</option>
+          <option>Domestic / Relationship Spillover Concern</option>
+          <option>Custom Local Form</option>
+        </select>
+      </label>
+      <label>Assessment notes / form text / narrative
+        <textarea id="assessmentText" rows="14" placeholder="Paste the completed assessment text here. Use demo data only."></textarea>
+      </label>
+
+      <div class="section-title">
+        <span class="step">2</span>
+        <h2>Confirm observed themes</h2>
+      </div>
+      <p class="helper">The tool will auto-detect themes from the text. Check only themes supported by known facts. Do not check boxes based on fear, assumptions, rumors, or labels.</p>
+      <div class="checks" id="themeChecks"></div>
+
+      <div class="section-title">
+        <span class="step">3</span>
+        <h2>Add known supports and ownership</h2>
+      </div>
+      <label>Known protective factors / strengths
+        <textarea id="protective" rows="3" placeholder="Trusted adult, parent/guardian involvement, willingness to talk, counselor connection, cooperative behavior, no access identified..."></textarea>
+      </label>
+      <label>Known missing facts / unknowns
+        <textarea id="unknowns" rows="3" placeholder="Exact words, target, access, timeline, parent contact, prior supports, witness confirmation..."></textarea>
+      </label>
+      <label>Follow-up owner
+        <input id="owner" placeholder="BTAM Chair, Assistant Principal, Counselor, SRO, School Social Worker..." />
+      </label>
+      <label>Follow-up date
+        <input id="date" type="date" />
+      </label>
+
+      <button id="analyzeBtn" type="button" class="primary wide">Generate Professional Interpretation</button>
+    </section>
+
+    <section class="panel output-panel">
+      <div class="output-head">
+        <div>
+          <h2>Professional Analyzer Output</h2>
+          <p class="helper">Copy, print, or download the output for team review. This remains a documentation aid only.</p>
+        </div>
+        <div class="mini-actions">
+          <button id="copyBtn" type="button" class="secondary">Copy</button>
+          <button id="downloadBtn" type="button" class="secondary">Download .txt</button>
+          <button id="printBtn" type="button" class="secondary">Print</button>
+        </div>
+      </div>
+      <div id="qualityBar" class="quality-bar" aria-label="Data quality score"><span style="width:0%"></span></div>
+      <div id="qualityLabel" class="quality-label">Data completeness: not analyzed yet.</div>
+      <div id="output" class="output-box">Load or paste assessment information, then click Generate Professional Interpretation.</div>
+    </section>
+  </main>
+
+  <section class="guide panel">
+    <h2>Follow-Along Interpretation Flow</h2>
+    <div class="flow">
+      <span>Concern</span><span>Facts</span><span>Themes</span><span>Unknowns</span><span>Action</span><span>Support</span><span>Follow-up</span><span>Review</span>
+    </div>
+    <p><strong>Professional interpretation standard:</strong> The tool does not decide whether someone is dangerous. It organizes the concern so trained officials can quickly understand what is known, what is missing, who needs to help, what action should happen now, and when the team must check back.</p>
+  </section>
+
+  <footer>
+    Documentation aid only. No diagnosis. No violence prediction. No legal/compliance guarantee. Human BTAM team review required.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
